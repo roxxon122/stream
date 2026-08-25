@@ -1,0 +1,315 @@
+/* Design Variables & Global Reset */
+:root {
+    --primary-color: #ff4757;
+    --primary-hover: #e03d4b;
+    --dark-bg: #2f3542;
+    --light-bg: #f1f2f6;
+    --text-color: #333333;
+    --card-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+}
+
+/* Header & Sticky Navbar Code */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 100;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-bg);
+}
+
+.navbar .logo span {
+    color: var(--primary-color);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin: 0 15px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a.active, .nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.cart-toggle {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cart-toggle:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Page App Grid Layout */
+.app-container {
+    max-width: 1200px;
+    margin: 100px auto 40px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 30px;
+    position: relative;
+}
+
+.menu-section {
+    flex: 1;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Category Filter Layout */
+.filter-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* Product Card Catalog Component */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.food-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.food-card:hover {
+    transform: translateY(-5px);
+}
+
+.food-img-placeholder {
+    height: 160px;
+    background: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.food-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.food-info h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.food-desc {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.food-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-bg);
+}
+
+.add-btn {
+    background: var(--dark-bg);
+    color: #fff;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.add-btn:hover {
+    background: var(--primary-color);
+}
+
+/* Shopping Cart Drawer Mechanics */
+.cart-sidebar {
+    width: 350px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    padding: 20px;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.close-cart {
+    display: none; /* Used mostly on mobile views */
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.empty-msg {
+    text-align: center;
+    color: #aaa;
+    padding: 20px 0;
+}
+
+/* Cart Item Rows */
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #eee;
+}
+
+.item-details h4 {
+    font-size: 14px;
+}
+
+.item-details span {
+    font-size: 12px;
+    color: #777;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: #ff4757;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.cart-footer {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.checkout-btn:hover {
+    background: var(--primary-hover);
+}
+
+/* Media Queries for Mobile Screens */
+@media (max-width: 900px) {
+    .app-container {
+        flex-direction: column;
+    }
+    .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        max-width: 360px;
+        height: 100vh;
+        z-index: 1000;
+        border-radius: 0;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cart-sidebar.open {
+        right: 0;
+    }
+    .close-cart {
+        display: block;
+    }
+}

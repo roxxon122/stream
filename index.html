@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KamadoFamilyChicken | Online Food Ordering</title>
+    <link rel="stylesheet" href="styles_052331.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="Samuel Abisoye">Josh<span>LickFingers</span></div>
+        <nav class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">Offers</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About Us</a>
+        </nav>
+        <button class="cart-toggle" onclick="toggleCart()">
+            🛒 Cart (<span id="cart-count">0</span>)
+        </button>
+    </header>
+
+    <!-- Main Content App Interface -->
+    <main class="app-container">
+       
+        <!-- Menu and Filters Side -->
+        <section class="menu-section">
+            <h1 class="section-title">Explore Our Delicious Menu</h1>
+           
+            <!-- Category Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterMenu('all')">All</button>
+                <button class="filter-btn" onclick="filterMenu('Maincourse')">Maincourse</button>
+                <button class="filter-btn" onclick="filterMenu('pizza')">Pizza</button>
+                <button class="filter-btn" onclick="filterMenu('drinks')">Drinks</button>
+            </div>
+
+            <!-- Dynamic Product Grid -->
+            <div class="menu-grid" id="menu-grid">
+                <!-- Injected dynamically by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Sidebar Floating Shopping Cart Panel -->
+        <aside class="cart-sidebar" id="cart-sidebar">
+            <div class="cart-header">
+                <h2>Your Order Summary</h2>
+                <button class="close-cart" onclick="toggleCart()">✕</button>
+            </div>
+           
+            <div class="cart-items" id="cart-items">
+                <!-- Injected dynamically by JavaScript -->
+                <p class="empty-msg">Your cart is empty.</p>
+            </div>
+
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+                <button class="checkout-btn" onclick="processCheckout()">Place Order Now</button>
+            </div>
+        </aside>
+
+    </main>
+
+    <script src="script_052328.js"></script>
+</body>
+</html>
